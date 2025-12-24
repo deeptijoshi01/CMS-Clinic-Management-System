@@ -1,208 +1,248 @@
 <?php
-// make sure $doctorurl is defined before including this file
+// make sure $patienturl is defined before including this file
+// example:
+// $patienturl = "http://localhost/CMS-NEW/includes/patient/";
 ?>
 
-<!-- ============ MOBILE TOP BAR (ONLY MOBILE) ============ -->
-<div class="doctor-mobile-navbar">
-  <button class="doctor-hamburger" onclick="toggleDoctorSidebar()">
-    <span></span>
-    <span></span>
-    <span></span>
+<!-- ================= MOBILE HEADER ================= -->
+<div class="patient-mobile-header">
+  <button class="hamburger" onclick="togglePatientSidebar()">
+    <i class="fa-solid fa-bars"></i>
   </button>
+  <span>Patient Dashboard</span>
 </div>
 
-<!-- ============ SIDEBAR ============ -->
-<div class="doctor-sidebar p-3"
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar p-3 patient-sidebar" id="patientSidebar"
      style="
-       width:230px;
-       height:100vh;
-       position:fixed;
-       left:0;
-       top:0;
-       background:#fff7f7;
-       border-right:1px solid #fde2e2;
-       font-family:'Outfit', system-ui, sans-serif;
-       overflow-y:auto;
-       overflow-x:hidden;
-       z-index:1050;
+        width:245px;
+        height:100vh;
+        position:fixed;
+        background:#fffafa;
+        border-right:1px solid #f3dcdc;
+        white-space:nowrap;
+        top:0;
+        left:0;
      ">
 
   <!-- HEADER -->
-  <div class="d-flex align-items-center mb-4">
+  <div class="d-flex align-items-center mb-3">
     <div style="
-      width:36px;height:36px;border-radius:50%;
-      background:#fdecec;
-      display:flex;align-items:center;justify-content:center;
+        width:36px;
+        height:36px;
+        border-radius:50%;
+        background:#fdecec;
+        display:flex;
+        align-items:center;
+        justify-content:center;
     ">
-      <i class="fa-solid fa-user-doctor" style="color:#9f1239;font-size:14px;"></i>
+      <i class="fa-solid fa-heart-pulse" style="color:#c24141;"></i>
     </div>
 
     <div class="ms-2">
       <div style="
-        font-size:12px;font-weight:600;color:#7f1d1d;
-        letter-spacing:0.06em;text-transform:uppercase;
-      ">Doctor</div>
-      <div style="font-size:11px;color:#6b7280;">Dashboard</div>
+          font-size:12px;
+          color:#7a2e2e;
+          font-weight:600;
+          letter-spacing:0.12em;
+          text-transform:uppercase;
+      ">
+        Patient
+      </div>
+      <div style="font-size:11px;color:#9a6b6b;">
+        Dashboard
+      </div>
     </div>
   </div>
 
-  <hr style="border-color:#fde2e2;margin-bottom:12px;">
+  <hr style="border-color:#f3dcdc; margin:0 0 14px 0;">
 
   <!-- MENU -->
-  <ul class="nav flex-column" style="font-size:14px;font-weight:500;">
+  <ul class="nav flex-column" style="font-size:14px;">
 
-    <li class="nav-item mb-1">
-      <a class="nav-link sidebar-link active" href="<?= $doctorurl ?>index.php">
-        <i class="fa-solid fa-house"></i> Dashboard
+    <li class="nav-item mt-2">
+      <a class="nav-link sidebar-link active"
+         href="<?php echo $patienturl; ?>index.php">
+        <i class="fa-solid fa-house me-2"></i> Dashboard
       </a>
     </li>
 
-    <li class="nav-item mb-1">
-      <a class="nav-link sidebar-link" href="<?= $doctorurl ?>total-patients.php">
-        <i class="fa-solid fa-users"></i> Patients
+    <li class="nav-item">
+      <a class="nav-link sidebar-link"
+         href="<?php echo $patienturl; ?>total-appointments.php">
+        <i class="fa-solid fa-file-medical me-2"></i> Total Appointments
       </a>
     </li>
 
-    <li class="nav-item mb-1">
-      <a class="nav-link sidebar-link" href="<?= $doctorurl ?>total-appointments.php">
-        <i class="fa-solid fa-calendar-check"></i> Appointments
+    <li class="nav-item">
+      <a class="nav-link sidebar-link"
+         href="<?php echo $patienturl; ?>upcoming-appointments.php">
+        <i class="fa-solid fa-calendar-days me-2"></i> Upcoming Appointments
       </a>
     </li>
 
-    <li class="nav-item mb-1">
-      <a class="nav-link sidebar-link" href="<?= $doctorurl ?>clinic-details.php">
-        <i class="fa-solid fa-house-chimney-medical"></i> Clinic Details
-      </a>
-    </li>
-
-    <li class="nav-item mb-1">
-      <a class="nav-link sidebar-link" href="<?= $doctorurl ?>add-services.php">
-        <i class="fa-solid fa-hand-holding-medical"></i> Services
-      </a>
-    </li>
-
-    <li class="nav-item mt-4">
-      <a href="<?= $doctorurl ?>logout.php" class="logout-btn">
-        <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
+    <li class="nav-item">
+      <a class="nav-link sidebar-link"
+         href="<?php echo $patienturl; ?>profile-management.php">
+        <i class="fa-solid fa-user me-2"></i> Profile Management
       </a>
     </li>
 
   </ul>
+
+  <!-- GO TO WEBSITE -->
+  <div class="mt-4">
+    <a href="http://localhost/CMS-NEW/"
+       target="_blank"
+       class="btn w-100 d-flex align-items-center justify-content-center gap-2 go-website-btn">
+      <i class="fa-solid fa-globe"></i>
+      Go to Website
+    </a>
+  </div>
+
 </div>
 
-<!-- OVERLAY -->
-<div class="doctor-overlay" onclick="toggleDoctorSidebar()"></div>
+<!-- ================= OVERLAY ================= -->
+<div class="patient-overlay" id="patientOverlay" onclick="togglePatientSidebar()"></div>
 
-<!-- ============ INLINE STYLES ============ -->
+<!-- ================= STYLES ================= -->
 <style>
-/* Links */
-.sidebar-link{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:9px 12px;
-  border-radius:12px;
-  color:#374151!important;
-  transition:.2s;
-}
-.sidebar-link i{
-  width:18px;
-  text-align:center;
-  color:#9f1239;
-}
-.sidebar-link:hover{
-  background:#fdecec;
-}
-.sidebar-link.active{
-  background:#fce7e7;
-  font-weight:600;
+/* Sidebar links */
+.sidebar-link {
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-bottom: 4px;
+    color: #374151 !important;
+    transition: all 0.2s ease;
 }
 
-/* Logout */
-.logout-btn{
-  display:block;
-  text-align:center;
-  background:#fee2e2;
-  color:#991b1b!important;
-  padding:10px;
-  border-radius:14px;
-  font-weight:600;
+.sidebar-link i {
+    width: 18px;
+    text-align: center;
+    color: #9a6b6b;
 }
 
-/* Sidebar base */
-.doctor-sidebar{
-  transition:transform .3s ease;
+.sidebar-link:hover {
+    background: #fff3f3;
+    color: #7a2e2e !important;
+    transform: translateX(2px);
 }
 
-/* MOBILE NAVBAR */
-.doctor-mobile-navbar{
-  display:none;
-  height:52px;
-  background:#fff7f7;
-  border-bottom:1px solid #fde2e2;
-  padding:0 14px;
-  align-items:center;
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:1100;
+.sidebar-link:hover i {
+    color: #c24141;
 }
 
-.doctor-hamburger{
-  background:none;
-  border:none;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
+/* Active link */
+.sidebar-link.active {
+    background: #fdecec;
+    color: #7a2e2e !important;
+    font-weight: 600;
 }
 
-.doctor-hamburger span{
-  width:22px;
-  height:2px;
-  background:#7f1d1d;
+.sidebar-link.active i {
+    color: #c24141;
 }
 
-/* Overlay */
-.doctor-overlay{
-  display:none;
+/* Go to Website Button */
+.go-website-btn {
+    background: #fdecec;
+    color: #7a2e2e;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid #f3dcdc;
+    transition: all 0.25s ease;
 }
 
-/* MOBILE BEHAVIOR */
-@media (max-width: 991px){
+.go-website-btn:hover {
+    background: #c24141;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
 
-  .doctor-mobile-navbar{
-    display:flex;
-  }
+.go-website-btn i {
+    font-size: 13px;
+    transition: transform 0.25s ease;
+}
 
-  .doctor-sidebar{
-    transform:translateX(-100%);
-    top:0;
-    left:0;
-    height:100vh;
-    box-shadow:4px 0 12px rgba(0,0,0,.15);
-  }
+.go-website-btn:hover i {
+    transform: rotate(-8deg) scale(1.1);
+}
 
-  .doctor-sidebar.open{
-    transform:translateX(0);
-  }
+/* ================= MOBILE HEADER ================= */
+.patient-mobile-header {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    height: 54px;
+    padding: 0 14px;
+    background: #fffafa;
+    border-bottom: 1px solid #f3dcdc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+}
 
-  .doctor-overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    z-index:1040;
-  }
+.patient-mobile-header span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a2e2e;
+}
 
-  .doctor-overlay.active{
-    display:block;
-  }
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #c24141;
+}
+
+/* ================= RESPONSIVE ================= */
+.patient-sidebar {
+    transition: transform 0.3s ease;
+    z-index: 1200;
+}
+
+.patient-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 1100;
+}
+
+@media (max-width: 768px) {
+
+    .patient-mobile-header {
+        display: flex;
+    }
+
+    .patient-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .patient-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .patient-overlay.show {
+        display: block;
+    }
+
+    body {
+        padding-top: 54px;
+    }
 }
 </style>
 
-<!-- ============ INLINE SCRIPT ============ -->
+<!-- ================= SCRIPT ================= -->
 <script>
-function toggleDoctorSidebar(){
-  document.querySelector('.doctor-sidebar').classList.toggle('open');
-  document.querySelector('.doctor-overlay').classList.toggle('active');
+function togglePatientSidebar() {
+    document.getElementById('patientSidebar').classList.toggle('open');
+    document.getElementById('patientOverlay').classList.toggle('show');
 }
 </script>
