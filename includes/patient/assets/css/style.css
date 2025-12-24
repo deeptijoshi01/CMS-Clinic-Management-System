@@ -1,0 +1,10 @@
+body {
+  font-family: 'Smooch Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+.sidebar{
+    width:  300px;
+    height: 630px;
+  
+}

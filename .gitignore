@@ -1,0 +1,12 @@
+# Ignore database credentials
+/includes/db_connect.php
+
+# Ignore uploads (user data)
+/uploads/
+
+# Ignore environment files
+.env
+
+# Ignore OS junk
+Thumbs.db
+.DS_Store

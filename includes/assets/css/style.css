@@ -1,0 +1,124 @@
+/* ================= FONT SYSTEM ================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #fff1f1, #fdecec);
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+.theme-header {
+    background: #fde6e6;
+    border-bottom: 1px solid #f2dcdc;
+}
+
+/* ================= BRAND / LOGO ================= */
+.brand-title {
+    font-family: 'Parisienne', cursive;
+    font-style: italic;
+    font-weight: 400;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.brand-title:hover {
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+    transform: scale(1.05);
+}
+
+/* ================= TITLES ================= */
+.theme-title {
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+/* ================= ICONS ================= */
+.theme-icon {
+    color: #333;
+}
+
+/* ================= BUTTONS ================= */
+.login-btn {
+    background: #000;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 18px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    border: none;
+}
+
+.login-btn:hover {
+    background-color: #111;
+    color: #fff;
+    transform: scale(1.06);
+}
+
+/* ================= CARDS (GLOBAL) ================= */
+.card {
+    background: #fde6e6;
+    border-radius: 22px;
+    padding: 14px;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+/* ================= SERVICE CARDS ================= */
+.service-card {
+    height: 235px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 12px;
+}
+
+/* ================= CARD TEXT ================= */
+.card-text {
+    height: 75px;
+    overflow: hidden;
+    font-size: 12.5px;
+    line-height: 1.35;
+    color: #555;
+}
+
+/* ================= APPOINTMENT CARDS ================= */
+.appointment-card {
+    margin-bottom: 40px;
+}
+
+/* ================= FOOTER ================= */
+.theme-footer {
+    background: #fde6e6;
+    border-top: 1px solid #f2dcdc;
+    color: #555;
+}
+
+/* ================= ALERTS (GLOBAL) ================= */
+.alert {
+    border-radius: 14px;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* ================= INPUTS (GLOBAL) ================= */
+input,
+select,
+textarea {
+    border-radius: 30px !important;
+    padding: 12px 18px !important;
+    background: #fff5f5 !important;
+    border: 1px solid #f2dcdc !important;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #000 !important;
+    box-shadow: none !important;
+}

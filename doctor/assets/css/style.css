@@ -1,0 +1,199 @@
+body {
+  font-family: 'Smooch Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+.sidebar{
+    width:  300px;
+    height: 630px;
+  
+}
+.main-content {
+  margin-top: 75px !important;
+  margin-left: 240px !important;
+}
+
+
+
+/* ===== GLOBAL PAGE FEEL ===== */
+body {
+  background: #f3f4f6;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+}
+
+/* Main sections (any section) */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Limit max-width for nicer layout */
+.container,
+.container-fluid {
+  max-width: 1200px;
+}
+
+/* ===== HEADINGS / TITLES ===== */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #111827;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Subtitles / muted text */
+.text-muted {
+  color: #6b7280 !important;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: linear-gradient(135deg, #0d6efd, #2563eb);
+  border-color: #0d6efd;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 8px 20px;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.45);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.btn-outline-primary {
+  border-radius: 999px;
+  font-weight: 500;
+  border-width: 1.4px;
+}
+
+/* ===== CARDS (services, features, etc.) ===== */
+.card {
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  background: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.18);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.card-text {
+  font-size: 0.92rem;
+  color: #4b5563;
+}
+
+/* ===== HERO / TOP AREA (if you have a main top section) ===== */
+#home,
+.hero,
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-title,
+#home h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* ===== TABLES (appointments / patients if any on CMS-NEW) ===== */
+.table {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.table thead {
+  background: #e5e7eb;
+}
+
+.table thead th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4b5563;
+  border-bottom: none;
+}
+
+.table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f3f4ff;
+}
+
+/* ===== FORMS (contact form etc.) ===== */
+form .form-control {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 8px 11px;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+form .form-control:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+form label {
+  font-weight: 500;
+  color: #374151;
+}
+
+/* ===== SMALL BADGES / LABELS ===== */
+.badge {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn-primary {
+    padding: 7px 16px;
+    font-size: 0.9rem;
+  }
+}
