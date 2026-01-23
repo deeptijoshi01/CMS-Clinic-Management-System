@@ -10,3 +10,6 @@
 # Ignore OS junk
 Thumbs.db
 .DS_Store
+
+includes/patient/includes/config.php
+

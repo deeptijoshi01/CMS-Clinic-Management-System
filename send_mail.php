@@ -2,6 +2,12 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+/* ============================
+   ADD ONLY THIS (TOP OF FILE)
+   ============================ */
+define("SMTP_EMAIL", "clinicsender@gmail.com");
+define("SMTP_PASS", "mjcjodgtwdnvckhc"); // app password, NO spaces
+
 // Load PHPMailer classes
 require __DIR__ . "/phpmailer/src/PHPMailer.php";
 require __DIR__ . "/phpmailer/src/SMTP.php";
@@ -18,7 +24,7 @@ function send_verification_email($to_email, $name, $code, $password, $patient_id
     // BASE URL OF YOUR WEBSITE
     $appurl = "http://localhost/CMS-NEW/";
 
-    // FINAL CORRECT VERIFY LINK (this is the fix)
+    // FINAL CORRECT VERIFY LINK
     $verify_link = $appurl . "verify-message.php?id=" . $patient_id;
 
     $mail = new PHPMailer(true);
@@ -28,13 +34,13 @@ function send_verification_email($to_email, $name, $code, $password, $patient_id
         $mail->isSMTP();
         $mail->Host       = "smtp.gmail.com";
         $mail->SMTPAuth   = true;
-        $mail->Username   = "deeptiajoshi01@gmail.com"; // replace
-        $mail->Password   = "yrwdlxrxuavyaycz";          // replace
+        $mail->Username   = SMTP_EMAIL;   // CHANGED (was hardcoded)
+        $mail->Password   = SMTP_PASS;    // CHANGED (was hardcoded)
         $mail->SMTPSecure = "tls";
         $mail->Port       = 587;
 
         // Sender
-        $mail->setFrom("deeptiajoshi01@gmail.com", "Clinic Verification");
+        $mail->setFrom(SMTP_EMAIL, "Clinic Verification");
 
         // Receiver
         $mail->addAddress($to_email);
@@ -43,7 +49,7 @@ function send_verification_email($to_email, $name, $code, $password, $patient_id
         $mail->isHTML(true);
         $mail->Subject = "Patient Verification Code";
 
-        // Email Body
+        // Email Body (UNCHANGED)
         $mail->Body = "
             <div style='font-family:Arial,Helvetica,sans-serif;line-height:1.5;color:#222'>
                 <h2>Hello " . htmlentities($name) . ",</h2>
